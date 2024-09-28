@@ -1,0 +1,13 @@
+-- Anti-AFK Script untuk Roblox (Kompatibel dengan Fluxus Executor)
+
+-- Menghubungkan Virtual User untuk mencegah AFK
+local VirtualUser = game:GetService("VirtualUser")
+
+-- Mendeteksi ketika pemain mulai idle
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+    -- Menghentikan sistem AFK dengan mensimulasikan klik kanan
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new(0, 0))
+end)
+
+print("Anti-AFK script telah diaktifkan!")
